@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bakkal</string>
+    <string name="title">Rahatla ve Alışveriş Yap</string>
+    <string name="description">Çevrimiçi alışveriş yapın ve mağazalardan evinize gelen yiyecekleri 1 saat kadar kısa sürede teslim alın</string>
+    <string name="sign_up">Kayıt ol</string>
+    <string name="sign_in">Giriş yap</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Grocery</string>
+    <string name="title">Relax and Shop</string>
+    <string name="description">Shop online and get groceries delivered from stores to your home in as fast as 1 hour</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
+</resources>
