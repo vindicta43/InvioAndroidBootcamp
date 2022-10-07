@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Odev4</string>
+    <string name="title_homepage">Ana Sayfa</string>
+    <string name="homepage_to_a">Go to -> A</string>
+    <string name="homepage_to_x">Go to -> X</string>
+    <string name="title_a">Sayfa A</string>
+    <string name="a_to_b">Go to -> B</string>
+    <string name="title_b">Sayfa B</string>
+    <string name="b_to_y">Go to -> y</string>
+    <string name="title_x">Sayfa X</string>
+    <string name="x_to_y">Go to -> Y</string>
+    <string name="title_y">Sayfa Y</string>
+    <string name="text_y_page">Son sayfa\nAna sayfaya dönmek için geri tuşuna basın</string>
+</resources>
