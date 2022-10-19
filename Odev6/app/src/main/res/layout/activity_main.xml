@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/yt_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/toolbar_item_dimen"
+                android:layout_height="@dimen/toolbar_item_dimen"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="12dp"
+                android:padding="1dp"
+                android:src="@drawable/ic_cast"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/imageView3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="@dimen/toolbar_item_dimen"
+                android:layout_height="@dimen/toolbar_item_dimen"
+                android:layout_marginEnd="12dp"
+                android:padding="1dp"
+                android:src="@drawable/ic_notifications"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/imageView4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="@dimen/toolbar_item_dimen"
+                android:layout_height="@dimen/toolbar_item_dimen"
+                android:layout_marginEnd="28dp"
+                android:padding="1dp"
+                android:src="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cardView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="@dimen/toolbar_item_dimen"
+                android:layout_height="@dimen/toolbar_item_dimen"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/color_profile"
+                app:cardCornerRadius="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="1dp"
+                    android:text="A"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <HorizontalScrollView
+        android:id="@+id/categoryScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:singleLine="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:text="Keşfet"
+                android:textColor="@color/color_text"
+                app:chipCornerRadius="0dp"
+                app:chipIcon="@drawable/ic_explore"
+                app:iconStartPadding="8dp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="2dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="12dp" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:text="Tümü"
+                    android:textColor="@color/color_text"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:text="Oyun"
+                    android:textColor="@color/color_text"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:text="Müzik"
+                    android:textColor="@color/color_text"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:text="Mix\'ler"
+                    android:textColor="@color/color_text"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@color/color_text"
+                    android:text="Komedi skeç gösteriler"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@color/color_text"
+                    android:text="Minecraft Bedrock"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:textColor="@color/color_text"
+                    android:text="Aksiyon-macera oyunları"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:text="Çizgi filmler"
+                    android:textColor="@color/color_text"
+                    app:iconStartPadding="8dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:text="Son yüklenenler"
+                    android:textColor="@color/color_text"
+                    app:iconStartPadding="8dp" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bottomView"
+        app:layout_constraintTop_toBottomOf="@id/categoryScroll">
+
+        <include
+            android:id="@+id/layout1"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout2"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout3"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout4"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout5"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout6"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout7"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout8"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout9"
+            layout="@layout/layout_video_1" />
+
+        <include
+            android:id="@+id/layout10"
+            layout="@layout/layout_video_1" />
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/color_text"
+        app:itemTextColor="@color/color_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic_home"
+        android:title="Ana Sayfa" />
+    <item
+        android:icon="@drawable/ic_shorts"
+        android:title="Shorts" />
+    <item
+        android:icon="@drawable/ic_add"
+        android:title="" />
+    <item
+        android:icon="@drawable/ic_subscriptions"
+        android:title="Abonelikler" />
+    <item
+        android:icon="@drawable/ic_library"
+        android:title="Kitaplık" />
+
+</menu>

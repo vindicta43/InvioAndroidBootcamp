@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Odev6</string>
+    <dimen name="toolbar_item_dimen">28dp</dimen>
+</resources>
