@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.alperen.bitirmeprojesi.BlankFragment"
+        android:name="com.alperen.bitirmeprojesi.SignInFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_sign_in" />
 </navigation>
