@@ -12,11 +12,17 @@ class SignUpFragment : Fragment() {
     private lateinit var binding: FragmentSignUpBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentSignUpBinding.inflate(inflater)
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        with(binding) {
+
+        }
+    }
 }

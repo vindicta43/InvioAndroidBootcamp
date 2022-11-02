@@ -3,35 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/signInFragment">
+    app:startDestination="@id/homeFragment">
+
     <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="com.alperen.bitirmeprojesi.ui.auth.OnboardingFragment"
-        android:label="OnboardingFragment"
-        tools:layout="@layout/fragment_onboarding">
-        <action
-            android:id="@+id/onboardingFragment_to_signInFragment"
-            app:destination="@id/signInFragment"
-            app:popUpTo="@id/onboardingFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
+        android:id="@+id/homeFragment"
+        android:name="com.alperen.bitirmeprojesi.ui.main.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.alperen.bitirmeprojesi.ui.auth.SignInFragment"
-        android:label="SignInFragment"
-        tools:layout="@layout/fragment_sign_in">
-        <action
-            android:id="@+id/signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.alperen.bitirmeprojesi.ui.auth.SignUpFragment"
-        android:label="SignUpFragment"
-        tools:layout="@layout/fragment_sign_up" />
-    <fragment
-        android:id="@+id/forgotPasswordFragment"
-        android:name="com.alperen.bitirmeprojesi.ui.auth.ForgotPasswordFragment"
-        android:label="ForgotPasswordFragment"
-        tools:layout="@layout/fragment_forgot_password" />
+        android:id="@+id/ordersFragment"
+        android:name="com.alperen.bitirmeprojesi.ui.main.OrdersFragment"
+        android:label="OrdersFragment"
+        tools:layout="@layout/fragment_orders" />
 </navigation>
