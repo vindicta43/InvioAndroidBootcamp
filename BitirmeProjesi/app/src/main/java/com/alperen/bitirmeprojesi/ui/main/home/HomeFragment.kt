@@ -5,22 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.alperen.bitirmeprojesi.R
 import com.alperen.bitirmeprojesi.databinding.FragmentHomeBinding
 import com.alperen.bitirmeprojesi.model.Food
-import com.alperen.bitirmeprojesi.network.FoodDao
-import com.alperen.bitirmeprojesi.network.RetrofitClient
 import com.alperen.bitirmeprojesi.ui.viewmodel.BaseViewModel
-import com.alperen.bitirmeprojesi.utils.Constants
 import com.alperen.bitirmeprojesi.utils.ItemClickedCallback
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(), ItemClickedCallback {

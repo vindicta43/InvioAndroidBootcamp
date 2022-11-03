@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alperen.bitirmeprojesi.databinding.LayoutFoodItemBinding
 import com.alperen.bitirmeprojesi.model.Food
-import com.alperen.bitirmeprojesi.utils.Constants
+import com.alperen.bitirmeprojesi.utils.AppUtils
 import com.alperen.bitirmeprojesi.utils.ItemClickedCallback
 import com.bumptech.glide.Glide
 
@@ -26,7 +26,7 @@ class HomeRecyclerViewAdapter(val list: List<Food>, val callback: ItemClickedCal
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         with(holder.binding) {
             foodData = list[position]
-            Glide.with(root).load(Constants.IMAGE_URL+list[position].yemek_resim_adi).into(ivFoodImage)
+            Glide.with(root).load(AppUtils.IMAGE_URL+list[position].yemek_resim_adi).into(ivFoodImage)
             root.setOnClickListener { callback.onItemClick(list[position]) }
         }
     }

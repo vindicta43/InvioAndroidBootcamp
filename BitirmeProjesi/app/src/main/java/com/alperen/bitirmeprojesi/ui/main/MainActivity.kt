@@ -2,21 +2,11 @@ package com.alperen.bitirmeprojesi.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.alperen.bitirmeprojesi.R
 import com.alperen.bitirmeprojesi.databinding.ActivityMainBinding
-import com.alperen.bitirmeprojesi.network.FoodDao
-import com.alperen.bitirmeprojesi.network.RetrofitClient
-import com.alperen.bitirmeprojesi.ui.viewmodel.BaseViewModel
-import com.alperen.bitirmeprojesi.utils.Constants
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

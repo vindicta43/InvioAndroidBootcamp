@@ -4,7 +4,7 @@ import com.alperen.bitirmeprojesi.model.Food
 import com.alperen.bitirmeprojesi.model.FoodResponse
 import javax.inject.Inject
 
-class FoodRepository (val foodDataSource: FoodDataSource) {
+class FoodRepository (private val foodDataSource: FoodDataSource) {
 
     suspend fun getFoods(): List<Food>? = foodDataSource.getFoods()
 }

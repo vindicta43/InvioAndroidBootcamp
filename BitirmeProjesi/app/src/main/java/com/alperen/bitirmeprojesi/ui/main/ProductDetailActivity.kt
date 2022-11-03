@@ -4,16 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.navArgs
 import com.alperen.bitirmeprojesi.databinding.ActivityProductDetailBinding
-import com.alperen.bitirmeprojesi.utils.Constants
+import com.alperen.bitirmeprojesi.utils.AppUtils
 import com.bumptech.glide.Glide
 
 class ProductDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductDetailBinding
-    val args: ProductDetailActivityArgs by navArgs()
+    private val args: ProductDetailActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductDetailBinding.inflate(layoutInflater)
+        binding.instance = this@ProductDetailActivity
+        binding.foodData = args.foodData
         setContentView(binding.root)
     }
 
@@ -21,9 +23,22 @@ class ProductDetailActivity : AppCompatActivity() {
         super.onResume()
 
         with(binding) {
-            foodData = args.foodData
-            Glide.with(this@ProductDetailActivity)
-                .load(Constants.IMAGE_URL + args.foodData.yemek_resim_adi).into(ivFoodImage)
+            Glide.with(this@ProductDetailActivity).load(AppUtils.IMAGE_URL+args.foodData.yemek_resim_adi).into(ivFoodImage)
+        }
+    }
+
+    fun increase() {
+        with(binding) {
+            var quantity = tvQuantity.text.toString().toInt()
+            tvQuantity.text = (++quantity).toString()
+        }
+    }
+
+    fun decrease() {
+        with(binding) {
+            val quantity = tvQuantity.text.toString().toInt()
+            if (quantity != 0)
+                tvQuantity.text = (quantity - 1).toString()
         }
     }
 }

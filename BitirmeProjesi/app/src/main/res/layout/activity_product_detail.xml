@@ -8,6 +8,11 @@
         <variable
             name="foodData"
             type="com.alperen.bitirmeprojesi.model.Food" />
+
+        <variable
+            name="instance"
+            type="com.alperen.bitirmeprojesi.ui.main.ProductDetailActivity" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +25,6 @@
             android:layout_width="256dp"
             android:layout_height="256dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/ellipse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -93,6 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:onClick="@{() -> instance.decrease()}"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_remove_circle"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -100,6 +105,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tvQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5"
@@ -117,12 +123,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:onClick="@{() -> instance.increase()}"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_add_circle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,13 +1,9 @@
 package com.alperen.bitirmeprojesi.data
 
 import com.alperen.bitirmeprojesi.model.Food
-import com.alperen.bitirmeprojesi.model.FoodResponse
 import com.alperen.bitirmeprojesi.network.FoodDao
-import com.alperen.bitirmeprojesi.network.RetrofitClient
-import com.alperen.bitirmeprojesi.utils.Constants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 class FoodDataSource (private val service: FoodDao?) {
 
