@@ -9,7 +9,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -24,13 +23,13 @@ class FoodAppModule {
 
     @Provides
     @Singleton
-    fun provideFoodDataSource(service: FoodDao?) : FoodDataSource {
-        return FoodDataSource(service)
+    fun provideFoodDataSource(impl: FoodDao?) : FoodDataSource {
+        return FoodDataSource(impl)
     }
 
     @Provides
     @Singleton
-    fun provideFoodRepository(foodDataSource: FoodDataSource): FoodRepository {
-        return FoodRepository(foodDataSource)
+    fun provideFoodRepository(impl: FoodDataSource): FoodRepository {
+        return FoodRepository(impl)
     }
 }

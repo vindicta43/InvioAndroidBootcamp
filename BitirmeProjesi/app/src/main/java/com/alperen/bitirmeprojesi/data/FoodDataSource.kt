@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class FoodDataSource @Inject constructor(private val service: FoodDao?) {
+class FoodDataSource (private val service: FoodDao?) {
 
     suspend fun getFoods(): List<Food>? = withContext(Dispatchers.IO) {
         service?.getFoods()?.yemekler

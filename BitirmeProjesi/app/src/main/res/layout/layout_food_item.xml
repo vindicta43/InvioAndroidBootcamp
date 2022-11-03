@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="food"
+            name="foodData"
             type="com.alperen.bitirmeprojesi.model.Food" />
     </data>
 
@@ -30,7 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/ivFood"
+                    android:id="@+id/ivFoodImage"
                     android:layout_width="256dp"
                     android:layout_height="256dp" />
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="@{food.yemek_adi}"
+                android:text="@{foodData.yemek_adi}"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
                 android:layout_margin="12dp"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/inter_semibold"
-                android:text="@{food.yemek_fiyat}"
+                android:text="@{foodData.yemek_fiyat}"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="@id/tvFoodName"
                 app:layout_constraintBottom_toBottomOf="@id/tvFoodName"

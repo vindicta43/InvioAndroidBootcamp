@@ -3,6 +3,7 @@ package com.alperen.bitirmeprojesi.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alperen.bitirmeprojesi.data.FoodRepository
+import com.alperen.bitirmeprojesi.model.CartFood
 import com.alperen.bitirmeprojesi.model.Food
 import com.alperen.bitirmeprojesi.model.FoodResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class BaseViewModel @Inject constructor(val foodRepository: FoodRepository): ViewModel() {
     var foodList = MutableLiveData<List<Food>>()
+    var cartFoodList = MutableLiveData<List<CartFood>>()
 
     fun getFoods() {
         CoroutineScope(Dispatchers.Main).launch {
