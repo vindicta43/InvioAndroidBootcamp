@@ -6,6 +6,7 @@ import com.alperen.bitirmeprojesi.data.FoodDataSource
 import com.alperen.bitirmeprojesi.data.FoodRepository
 import com.alperen.bitirmeprojesi.network.FoodDao
 import com.alperen.bitirmeprojesi.network.RetrofitClient
+import com.alperen.bitirmeprojesi.ui.viewmodel.MainViewModel
 import com.alperen.bitirmeprojesi.utils.AppUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase

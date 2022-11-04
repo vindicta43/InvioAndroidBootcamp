@@ -14,6 +14,9 @@
             app:destination="@id/signInFragment"
             app:popUpTo="@id/onboardingFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/onboardingFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"

@@ -30,6 +30,6 @@
         android:label="ProductDetailActivity" >
         <argument
             android:name="foodData"
-            app:argType="com.alperen.bitirmeprojesi.model.Food" />
+            app:argType="com.alperen.bitirmeprojesi.model.CartFood" />
     </activity>
 </navigation>

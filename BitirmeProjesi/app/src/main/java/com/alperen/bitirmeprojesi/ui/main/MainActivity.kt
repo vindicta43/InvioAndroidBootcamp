@@ -6,10 +6,15 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.alperen.bitirmeprojesi.R
 import com.alperen.bitirmeprojesi.databinding.ActivityMainBinding
+import com.alperen.bitirmeprojesi.model.CartFood
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    companion object {
+        val cartFoodList = arrayListOf<CartFood>()
+    }
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

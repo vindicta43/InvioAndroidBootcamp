@@ -20,15 +20,13 @@ class AuthDataSource(
             callback.onProgress()
             authInstance.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
-                    val randomId = UUID.randomUUID().toString()
-
                     databaseInstance.getReference("users")
-                        .child(randomId)
-                        .setValue(User(randomId, fullName, email))
+                        .child(authInstance.uid.toString())
+                        .setValue(User(authInstance.uid.toString(), fullName, email))
                         .addOnSuccessListener {
                             callback.onFinished(
                                 AppUtils.RESULT_OK,
-                                "Account created successfully"
+                                AppUtils.ACC_CREATED
                             )
                         }
                         .addOnFailureListener {
@@ -40,7 +38,7 @@ class AuthDataSource(
                         .addOnCanceledListener {
                             callback.onFinished(
                                 AppUtils.RESULT_ERROR,
-                                "An error occurred"
+                                AppUtils.ERR_OCCURRED
                             )
                         }
                 }
@@ -53,7 +51,7 @@ class AuthDataSource(
                 .addOnCanceledListener {
                     callback.onFinished(
                         AppUtils.RESULT_ERROR,
-                        "An error occurred"
+                        AppUtils.ERR_OCCURRED
                     )
                 }
         }
@@ -77,7 +75,32 @@ class AuthDataSource(
                 .addOnCanceledListener {
                     callback.onFinished(
                         AppUtils.RESULT_ERROR,
-                        "An error occurred"
+                        AppUtils.ERR_OCCURRED
+                    )
+                }
+        }
+
+    suspend fun forgotPassword(email: String, callback: IAuthCallback) =
+        withContext(Dispatchers.Main) {
+            callback.onProgress()
+            authInstance.sendPasswordResetEmail(email)
+                .addOnSuccessListener {
+                    callback.onFinished(
+                        AppUtils.RESULT_OK,
+                        AppUtils.ACC_RESET_MAIL
+                    )
+
+                }
+                .addOnFailureListener {
+                    callback.onFinished(
+                        AppUtils.RESULT_ERROR,
+                        it.localizedMessage
+                    )
+                }
+                .addOnCanceledListener {
+                    callback.onFinished(
+                        AppUtils.RESULT_ERROR,
+                        AppUtils.ERR_OCCURRED
                     )
                 }
         }

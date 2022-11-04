@@ -15,6 +15,9 @@ object AppUtils {
 
     const val FIELD_MSG = "This field must be filled"
     const val FILL_EMPTY_SPACES = "Please fill empty spaces"
+    const val ACC_CREATED = "Account created successfully"
+    const val ACC_RESET_MAIL = "Password reset email send successfully"
+    const val ERR_OCCURRED = "An error occurred"
 
     fun setError(layout: TextInputLayout, msg: String?) {
         if (msg == null) {

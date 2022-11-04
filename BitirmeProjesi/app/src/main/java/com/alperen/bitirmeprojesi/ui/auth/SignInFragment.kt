@@ -25,6 +25,8 @@ class SignInFragment : Fragment() {
     ): View {
         binding = FragmentSignInBinding.inflate(inflater)
         binding.instance = this
+        // TODO: test için yazıldı daha sonra sil
+        findNavController().navigate(R.id.signInFragment_to_mainActivity)
         return binding.root
     }
 
@@ -52,7 +54,7 @@ class SignInFragment : Fragment() {
         with(binding) {
             if (!etEmail.text.isNullOrEmpty() && !etPassword.text.isNullOrEmpty()) {
                 viewModel.signIn(
-                    etEmail.text.toString(),
+                    etEmail.text.toString().trim(),
                     etPassword.text.toString(),
                     object : IAuthCallback {
                         override fun onProgress() {

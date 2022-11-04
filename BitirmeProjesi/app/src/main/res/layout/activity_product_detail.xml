@@ -7,7 +7,7 @@
 
         <variable
             name="foodData"
-            type="com.alperen.bitirmeprojesi.model.Food" />
+            type="com.alperen.bitirmeprojesi.model.CartFood" />
 
         <variable
             name="instance"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:fontFamily="@font/inter_semibold"
-            android:text="@{foodData.yemek_fiyat}"
+            android:text="@{String.valueOf(foodData.yemek_fiyat)}"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/textView"
@@ -108,7 +108,6 @@
                     android:id="@+id/tvQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textColor="@color/black"

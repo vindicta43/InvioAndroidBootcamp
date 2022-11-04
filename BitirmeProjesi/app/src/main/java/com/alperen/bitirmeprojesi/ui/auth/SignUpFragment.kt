@@ -61,8 +61,8 @@ class SignUpFragment : Fragment() {
         with(binding) {
             if (!etFullName.text.isNullOrEmpty() && !etEmail.text.isNullOrEmpty() && !etPassword.text.isNullOrEmpty()) {
                 viewModel.signUp(
-                    etFullName.text.toString(),
-                    etEmail.text.toString(),
+                    etFullName.text.toString().trim(),
+                    etEmail.text.toString().trim(),
                     etPassword.text.toString(),
                     object : IAuthCallback {
                         override fun onProgress() {
