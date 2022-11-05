@@ -26,7 +26,7 @@ class HomeRecyclerViewAdapter(val list: List<Food>, val callback: ItemClickedCal
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         with(holder.binding) {
             foodData = list[position]
-            Glide.with(root).load(AppUtils.IMAGE_URL+list[position].yemek_resim_adi).into(ivFoodImage)
+            Glide.with(root).load(AppUtils.IMAGE_URL +list[position].yemek_resim_adi).into(ivFoodImage)
             root.setOnClickListener { callback.onItemClick(list[position]) }
         }
     }

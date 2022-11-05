@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="foodData"
-            type="com.alperen.bitirmeprojesi.model.Food" />
+            type="com.alperen.bitirmeprojesi.model.CartFood" />
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -15,8 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:backgroundTint="@color/purple_50"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="0dp">
+        app:cardCornerRadius="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -27,8 +26,8 @@
                 android:layout_width="256dp"
                 android:layout_height="256dp"
                 android:backgroundTint="@color/purple_25"
+                android:elevation="0dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -38,8 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="24dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ayran" />
+                    android:scaleType="fitXY" />
 
             </androidx.cardview.widget.CardView>
 
@@ -50,8 +48,9 @@
                 android:layout_margin="12dp"
                 android:fontFamily="@font/inter_bold"
                 android:text="@{foodData.yemek_adi}"
+                android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvFoodQuantity"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardFoodImage" />
 
@@ -61,12 +60,39 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:layout_marginStart="8dp"
-                android:fontFamily="@font/inter_semibold"
+                android:fontFamily="@font/inter_bold"
                 android:text='@{String.valueOf(foodData.yemek_fiyat) + " ₺"}'
+                android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvFoodPriceTotal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardFoodImage" />
+
+            <TextView
+                android:id="@+id/tvFoodQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text='@{"Adet: " + String.valueOf(foodData.yemek_siparis_adet)}'
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvFoodName"
+                app:layout_constraintTop_toBottomOf="@id/tvFoodName" />
+
+            <TextView
+                android:id="@+id/tvFoodPriceTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text='@{"Toplam: " + String.valueOf(foodData.yemek_siparis_adet * foodData.yemek_fiyat)}'
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tvFoodPrice"
+                app:layout_constraintTop_toBottomOf="@id/tvFoodPrice" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

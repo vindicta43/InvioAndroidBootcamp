@@ -10,4 +10,6 @@
     <color name="gray">#AAA</color>
 
      <color name="purple">#9139BA</color>
+     <color name="purple_50">#809139BA</color>
+     <color name="purple_25">#409139BA</color>
 </resources>

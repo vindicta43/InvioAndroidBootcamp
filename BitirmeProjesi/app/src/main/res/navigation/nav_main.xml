@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/ordersFragment"
-        android:name="com.alperen.bitirmeprojesi.ui.main.OrdersFragment"
+        android:name="com.alperen.bitirmeprojesi.ui.main.orders.OrdersFragment"
         android:label="OrdersFragment"
         tools:layout="@layout/fragment_orders" >
         <action
