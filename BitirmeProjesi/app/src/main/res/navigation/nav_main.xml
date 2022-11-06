@@ -36,5 +36,16 @@
         android:id="@+id/profileFragment"
         android:name="com.alperen.bitirmeprojesi.ui.main.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/profileFragment_to_authActivity"
+            app:destination="@id/authActivity"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <activity
+        android:id="@+id/authActivity"
+        android:name="com.alperen.bitirmeprojesi.ui.auth.AuthActivity"
+        android:label="activity_auth"
+        tools:layout="@layout/activity_auth" />
 </navigation>

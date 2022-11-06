@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/inter_semibold"
-                android:text='@{"Adet: " + String.valueOf(foodData.yemek_siparis_adet)}'
+                android:text='@{"Quantity: " + String.valueOf(foodData.yemek_siparis_adet)}'
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/inter_semibold"
-                android:text='@{"Toplam: " + String.valueOf(foodData.yemek_siparis_adet * foodData.yemek_fiyat)}'
+                android:text='@{"Total: " + String.valueOf(foodData.yemek_siparis_adet * foodData.yemek_fiyat) + " ₺"}'
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"

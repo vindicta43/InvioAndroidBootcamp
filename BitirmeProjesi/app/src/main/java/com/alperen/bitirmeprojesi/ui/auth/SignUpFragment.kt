@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,7 +13,6 @@ import com.alperen.bitirmeprojesi.databinding.FragmentSignUpBinding
 import com.alperen.bitirmeprojesi.ui.viewmodel.AuthViewModel
 import com.alperen.bitirmeprojesi.utils.AppUtils
 import com.alperen.bitirmeprojesi.utils.IAuthCallback
-import com.google.android.material.progressindicator.CircularProgressIndicator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

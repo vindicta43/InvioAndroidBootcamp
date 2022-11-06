@@ -34,21 +34,7 @@ class OrdersFragment : Fragment(), ItemClickedCallback {
 
     override fun onResume() {
         super.onResume()
-
-        with(binding) {
-            if (MainActivity.cartFoodList.isNotEmpty()) {
-                noItemFound.visibility = View.GONE
-                rwOrders.visibility = View.VISIBLE
-
-                rwOrders.apply {
-                    adapter = OrdersRecyclerViewAdapter(MainActivity.cartFoodList, this@OrdersFragment)
-                    layoutManager = GridLayoutManager(requireContext(), 2)
-                }
-            } else {
-                noItemFound.visibility = View.VISIBLE
-                rwOrders.visibility = View.GONE
-            }
-        }
+        updateUi()
     }
 
     fun checkout() {
@@ -58,13 +44,13 @@ class OrdersFragment : Fragment(), ItemClickedCallback {
 
         if (MainActivity.cartFoodList.isNotEmpty()) {
             MainActivity.cartFoodList.forEach {
-                checkoutMsg += "${it.yemek_adi} \t quantity: ${it.yemek_siparis_adet} \t total: ${it.yemek_siparis_adet * it.yemek_fiyat}\n"
+                checkoutMsg += "${it.yemek_adi} \t quantity: ${it.yemek_siparis_adet} \t total: ${it.yemek_siparis_adet * it.yemek_fiyat} ₺\n"
                 checkoutQty += it.yemek_siparis_adet
                 checkoutPrc += (it.yemek_siparis_adet * it.yemek_fiyat)
             }
 
-            checkoutMsg += "\nTotal quantity: $checkoutQty\n" +
-                    "Total price: $checkoutPrc ₺\n" +
+            checkoutMsg += "\nTotal cart quantity: $checkoutQty\n" +
+                    "Total cart price: $checkoutPrc ₺\n" +
                     "Do you want to purchase all products in the cart?"
 
             AlertDialog.Builder(requireContext())
@@ -81,7 +67,7 @@ class OrdersFragment : Fragment(), ItemClickedCallback {
                                     .setNegativeButton("Okay") { _, _ -> }
                                     .show()
                                 MainActivity.cartFoodList.clear()
-                                binding.rwOrders.adapter?.notifyDataSetChanged()
+                                updateUi()
                             }
                             // Other situations
                             else -> {
@@ -98,6 +84,25 @@ class OrdersFragment : Fragment(), ItemClickedCallback {
                 .show()
         } else {
             Snackbar.make(binding.root, "Cart is empty", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    fun updateUi() {
+        with(binding) {
+            MainActivity.setBadge()
+
+            if (MainActivity.cartFoodList.isNotEmpty()) {
+                noItemFound.visibility = View.GONE
+                rwOrders.visibility = View.VISIBLE
+
+                rwOrders.apply {
+                    adapter = OrdersRecyclerViewAdapter(MainActivity.cartFoodList, this@OrdersFragment)
+                    layoutManager = GridLayoutManager(requireContext(), 2)
+                }
+            } else {
+                noItemFound.visibility = View.VISIBLE
+                rwOrders.visibility = View.GONE
+            }
         }
     }
 

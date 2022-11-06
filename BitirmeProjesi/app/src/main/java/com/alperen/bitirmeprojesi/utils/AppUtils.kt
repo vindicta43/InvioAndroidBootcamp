@@ -2,8 +2,6 @@ package com.alperen.bitirmeprojesi.utils
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
-import android.content.DialogInterface.OnClickListener
 import com.google.android.material.textfield.TextInputLayout
 
 object AppUtils {
@@ -13,11 +11,15 @@ object AppUtils {
     const val RESULT_OK = 1
     const val RESULT_ERROR = 0
 
+    const val SHARED_PREF_NAME = "sharedPrefName"
+    const val SHARED_PREF_KEY = "sharedPrefKey"
+
     const val FIELD_MSG = "This field must be filled"
     const val FILL_EMPTY_SPACES = "Please fill empty spaces"
     const val ACC_CREATED = "Account created successfully"
     const val ACC_RESET_MAIL = "Password reset email send successfully"
     const val ERR_OCCURRED = "An error occurred"
+    const val LOGOUT = "Logged out successfully"
 
     fun setError(layout: TextInputLayout, msg: String?) {
         if (msg == null) {

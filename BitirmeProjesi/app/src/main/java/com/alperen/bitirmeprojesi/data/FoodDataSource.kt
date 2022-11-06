@@ -1,6 +1,5 @@
 package com.alperen.bitirmeprojesi.data
 
-import android.util.Log
 import com.alperen.bitirmeprojesi.model.CartFood
 import com.alperen.bitirmeprojesi.model.Food
 import com.alperen.bitirmeprojesi.model.CRUDResponse

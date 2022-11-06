@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView.OnQueryTextListener
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.alperen.bitirmeprojesi.databinding.FragmentHomeBinding
 import com.alperen.bitirmeprojesi.model.CartFood
 import com.alperen.bitirmeprojesi.model.Food
@@ -20,11 +20,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment(), ItemClickedCallback {
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: MainViewModel by activityViewModels()
+    private var searchList = arrayListOf<Food>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
+        binding.etSearch.clearFocus()
         viewModel.getFoods()
         return binding.root
     }
@@ -39,6 +41,22 @@ class HomeFragment : Fragment(), ItemClickedCallback {
                     layoutManager = GridLayoutManager(requireContext(), 2)
                 }
             }
+
+            etSearch.setOnQueryTextListener(object : OnQueryTextListener {
+                override fun onQueryTextSubmit(p0: String?): Boolean = false
+
+                override fun onQueryTextChange(p0: String?): Boolean {
+                    val temp = viewModel.foodList.value?.filter {
+                        it.yemek_adi.lowercase().contains(p0?.lowercase().toString())
+                    }
+
+                    if (!temp.isNullOrEmpty()) {
+                        rwHome.adapter =  HomeRecyclerViewAdapter(temp, this@HomeFragment)
+                        rwHome.adapter?.notifyDataSetChanged()
+                    }
+                    return false
+                }
+            })
         }
     }
 

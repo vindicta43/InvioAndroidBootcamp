@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alperen.bitirmeprojesi.databinding.LayoutCartFoodItemBinding
 import com.alperen.bitirmeprojesi.model.CartFood
-import com.alperen.bitirmeprojesi.model.Food
-import com.alperen.bitirmeprojesi.ui.main.home.HomeRecyclerViewAdapter
 import com.alperen.bitirmeprojesi.utils.AppUtils
 import com.alperen.bitirmeprojesi.utils.ItemClickedCallback
 import com.bumptech.glide.Glide

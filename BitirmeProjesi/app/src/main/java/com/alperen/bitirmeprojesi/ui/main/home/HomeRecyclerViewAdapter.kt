@@ -9,24 +9,29 @@ import com.alperen.bitirmeprojesi.utils.AppUtils
 import com.alperen.bitirmeprojesi.utils.ItemClickedCallback
 import com.bumptech.glide.Glide
 
-class HomeRecyclerViewAdapter(val list: List<Food>, val callback: ItemClickedCallback) : RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeViewHolder>() {
+class HomeRecyclerViewAdapter(var list: List<Food>, val callback: ItemClickedCallback) :
+    RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeViewHolder>() {
 
-    inner class HomeViewHolder(binding: LayoutFoodItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class HomeViewHolder(binding: LayoutFoodItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         var binding: LayoutFoodItemBinding
+
         init {
             this.binding = binding
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val binding = LayoutFoodItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            LayoutFoodItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HomeViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         with(holder.binding) {
             foodData = list[position]
-            Glide.with(root).load(AppUtils.IMAGE_URL +list[position].yemek_resim_adi).into(ivFoodImage)
+            Glide.with(root).load(AppUtils.IMAGE_URL + list[position].yemek_resim_adi)
+                .into(ivFoodImage)
             root.setOnClickListener { callback.onItemClick(list[position]) }
         }
     }

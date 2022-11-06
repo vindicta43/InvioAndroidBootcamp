@@ -1,21 +1,23 @@
 package com.alperen.bitirmeprojesi.ui.main.profile
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alperen.bitirmeprojesi.R
 import com.alperen.bitirmeprojesi.databinding.FragmentProfileBinding
 import com.alperen.bitirmeprojesi.model.CartFood
 import com.alperen.bitirmeprojesi.model.Food
-import com.alperen.bitirmeprojesi.ui.main.MainActivity
+import com.alperen.bitirmeprojesi.ui.viewmodel.AuthViewModel
 import com.alperen.bitirmeprojesi.ui.viewmodel.MainViewModel
 import com.alperen.bitirmeprojesi.utils.AppUtils
+import com.alperen.bitirmeprojesi.utils.IAuthCallback
 import com.alperen.bitirmeprojesi.utils.ItemClickedCallback
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileFragment : Fragment(), ItemClickedCallback {
     private lateinit var binding: FragmentProfileBinding
     private val viewModel: MainViewModel by viewModels()
+    private val authViewModel: AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,34 +62,63 @@ class ProfileFragment : Fragment(), ItemClickedCallback {
     }
 
     fun logout() {
+        authViewModel.logout(object : IAuthCallback {
+            override fun onProgress() {}
 
+            override fun onFinished(resultCode: Int, msg: String?) {
+                when (resultCode) {
+                    AppUtils.RESULT_OK -> {
+                        writeToPref(true)
+                        Snackbar.make(binding.root, msg!!, Snackbar.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.profileFragment_to_authActivity)
+                        requireActivity().finish()
+                    }
+                    AppUtils.RESULT_ERROR -> {
+                        AppUtils.createDialog(requireContext(), msg)
+                    }
+                }
+            }
+        })
+    }
+
+    private fun writeToPref(bool: Boolean) {
+        val prefs =
+            requireActivity().getSharedPreferences(AppUtils.SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        prefs.edit().putBoolean(AppUtils.SHARED_PREF_KEY, bool).apply()
     }
 
     override fun onItemClick(food: CartFood) {
-        viewModel.deleteOrder(food.sepet_yemek_id, food.kullanici_adi).observe(viewLifecycleOwner) {
-            when (it?.success) {
-                // Success
-                AppUtils.RESULT_OK -> {
-                    AlertDialog.Builder(requireContext())
-                        .setTitle("Success")
-                        .setMessage("Product successfully deleted from previous orders")
-                        .setNegativeButton("Okay") { _, _ -> }
-                        .show()
-                    val temp = ArrayList<CartFood>(viewModel.ordersList.value)
-                    temp.remove(food)
-                    viewModel.ordersList.value = temp
-                    binding.rwProfile.adapter?.notifyDataSetChanged()
-                }
-                // Other situations
-                else -> {
-                    AlertDialog.Builder(requireContext())
-                        .setTitle("Error")
-                        .setMessage(it?.message)
-                        .setNegativeButton("Okay") { _, _ -> }
-                        .show()
+        AlertDialog.Builder(requireContext())
+            .setTitle("gg")
+            .setMessage("Do you want to remove this product from your purchased list?")
+            .setPositiveButton("Okay") { _, _ ->
+                viewModel.deleteOrder(food.sepet_yemek_id, food.kullanici_adi).observe(viewLifecycleOwner) {
+                    when (it?.success) {
+                        // Success
+                        AppUtils.RESULT_OK -> {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Success")
+                                .setMessage("Product successfully deleted from previous orders")
+                                .setNegativeButton("Okay") { _, _ -> }
+                                .show()
+                            val temp = ArrayList<CartFood>(viewModel.ordersList.value)
+                            temp.remove(food)
+                            viewModel.ordersList.value = temp
+                            binding.rwProfile.adapter?.notifyDataSetChanged()
+                        }
+                        // Other situations
+                        else -> {
+                            AlertDialog.Builder(requireContext())
+                                .setTitle("Error")
+                                .setMessage(it?.message)
+                                .setNegativeButton("Okay") { _, _ -> }
+                                .show()
+                        }
+                    }
                 }
             }
-        }
+            .setNegativeButton("No") { _, _ -> }
+            .show()
     }
 
     override fun onItemClick(food: Food) {}

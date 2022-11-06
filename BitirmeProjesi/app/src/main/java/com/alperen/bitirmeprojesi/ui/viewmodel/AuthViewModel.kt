@@ -32,4 +32,10 @@ class AuthViewModel @Inject constructor(private val authRepository: AuthReposito
             authRepository.forgotPassword(email, callback)
         }
     }
+
+    fun logout(callback: IAuthCallback) {
+        CoroutineScope(Dispatchers.Main).launch {
+            authRepository.logout(callback)
+        }
+    }
 }

@@ -72,7 +72,7 @@ class ProductDetailActivity : AppCompatActivity() {
             } else {
                 Snackbar.make(
                     binding.root,
-                    "Sepette ${args.foodData.yemek_adi} kalmadı",
+                    "There is no ${args.foodData.yemek_adi} in cart",
                     Snackbar.LENGTH_SHORT
                 ).show()
             }

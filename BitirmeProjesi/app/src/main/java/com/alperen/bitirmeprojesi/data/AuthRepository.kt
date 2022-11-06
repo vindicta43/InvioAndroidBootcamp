@@ -1,9 +1,6 @@
 package com.alperen.bitirmeprojesi.data
 
 import com.alperen.bitirmeprojesi.utils.IAuthCallback
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class AuthRepository(private val authDataSource: AuthDataSource) {
 
@@ -14,5 +11,7 @@ class AuthRepository(private val authDataSource: AuthDataSource) {
         authDataSource.signIn(email, password, callback)
 
     suspend fun forgotPassword(email: String, callback: IAuthCallback) = authDataSource.forgotPassword(email, callback)
+
+    suspend fun logout(callback: IAuthCallback) = authDataSource.logout(callback)
 
 }

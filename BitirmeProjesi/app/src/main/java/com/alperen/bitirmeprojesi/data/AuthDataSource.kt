@@ -7,8 +7,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.util.UUID
-import javax.inject.Inject
 
 class AuthDataSource(
     private val authInstance: FirebaseAuth,
@@ -104,4 +102,12 @@ class AuthDataSource(
                     )
                 }
         }
+
+    suspend fun logout(callback: IAuthCallback) = withContext(Dispatchers.Main) {
+        authInstance.signOut()
+        callback.onFinished(
+            AppUtils.RESULT_OK,
+            AppUtils.LOGOUT
+        )
+    }
 }
