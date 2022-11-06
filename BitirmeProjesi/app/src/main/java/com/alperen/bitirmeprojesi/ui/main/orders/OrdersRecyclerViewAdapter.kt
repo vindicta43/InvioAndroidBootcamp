@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alperen.bitirmeprojesi.databinding.LayoutCartFoodItemBinding
-import com.alperen.bitirmeprojesi.databinding.LayoutFoodItemBinding
 import com.alperen.bitirmeprojesi.model.CartFood
 import com.alperen.bitirmeprojesi.model.Food
 import com.alperen.bitirmeprojesi.ui.main.home.HomeRecyclerViewAdapter

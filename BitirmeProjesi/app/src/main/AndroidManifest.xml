@@ -24,7 +24,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.alperen.bitirmeprojesi.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

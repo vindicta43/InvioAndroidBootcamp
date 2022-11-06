@@ -11,7 +11,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:backgroundTint="@color/purple_50"
@@ -19,12 +19,12 @@
         app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardFoodImage"
-                android:layout_width="256dp"
+                android:layout_width="match_parent"
                 android:layout_height="256dp"
                 android:backgroundTint="@color/purple_25"
                 android:elevation="0dp"
@@ -36,12 +36,24 @@
 
                 <ImageView
                     android:id="@+id/ivFoodImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="256dp"
+                    android:layout_height="256dp"
+                    android:layout_gravity="center"
                     android:padding="24dp"
                     android:scaleType="fitXY" />
 
+
             </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:id="@+id/ibDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvFoodName"

@@ -10,8 +10,8 @@ object AppUtils {
     const val BASE_URL = "http://kasimadalan.pe.hu/"
     const val IMAGE_URL = "http://kasimadalan.pe.hu/yemekler/resimler/"
 
-    const val RESULT_OK = 0
-    const val RESULT_ERROR = 1
+    const val RESULT_OK = 1
+    const val RESULT_ERROR = 0
 
     const val FIELD_MSG = "This field must be filled"
     const val FILL_EMPTY_SPACES = "Please fill empty spaces"

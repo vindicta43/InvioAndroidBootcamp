@@ -7,15 +7,16 @@ import androidx.navigation.ui.setupWithNavController
 import com.alperen.bitirmeprojesi.R
 import com.alperen.bitirmeprojesi.databinding.ActivityMainBinding
 import com.alperen.bitirmeprojesi.model.CartFood
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     companion object {
         val cartFoodList = arrayListOf<CartFood>()
     }
-
-    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,5 +30,21 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNav.setupWithNavController(navController)
+
+        setBadge()
+    }
+
+    private fun setBadge() {
+        // Orders item badge
+        var orderAmount = 0
+        cartFoodList.forEach { orderAmount += it.yemek_siparis_adet }
+
+        val badge = binding.bottomNav.getOrCreateBadge(R.id.ordersFragment)
+        if (orderAmount == 0) {
+            badge.isVisible = false
+        } else {
+            badge.isVisible = true
+            badge.number = orderAmount
+        }
     }
 }
